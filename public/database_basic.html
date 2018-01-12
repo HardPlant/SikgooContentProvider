@@ -93,9 +93,19 @@
     <script src="https://www.gstatic.com/frebasejs/3.1.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/frebasejs/3.1.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/frebasejs/3.1.0/firebase-database.js"></script>
-
-    /* TODO 2. 버튼을 눌렀을 경우 구글 인증 동작하게 */ /* TODO 3. 데이터 베이스 '/메세지' 쓰기 */ /* TODO 4. DB에서 '/메세지'값 읽어오기 */ /* TODO 5. DB 메세지 값 변경 */
-
+    <script>
+        /* TODO 2. 버튼을 눌렀을 경우 구글 인증 동작하게 */
+        $('#BTN_GOOGLE_LOGIN').click(function() {
+            var provider = new firebase.auth.GoogleAuthProvider();
+            firebase.auth().signInWithPopup(provider).then(function(result) {})
+                .catch(function(error) {
+                    alert(error.message);
+                });
+        });
+        /* TODO 3. 데이터 베이스 '/메세지' 쓰기 */
+        firebase.database().ref('/메시지').set('안녕하세요!');
+        /* TODO 4. DB에서 '/메세지'값 읽어오기 */
+        /* TODO 5. DB 메세지 값 변경 */
     </script>
 
 </body>
