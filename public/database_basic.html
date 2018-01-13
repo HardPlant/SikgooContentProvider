@@ -105,7 +105,11 @@
         /* TODO 3. 데이터 베이스 '/메세지' 쓰기 */
         firebase.database().ref('/메시지').set('안녕하세요!');
         /* TODO 4. DB에서 '/메세지'값 읽어오기 */
-        /* TODO 5. DB 메세지 값 변경 */
+        firebase.database().ref('/메시지').once('value', function(snapshot) {
+                var message = snapshot.val();
+                $("#DB_MESSAGE").text(message);
+            })
+            /* TODO 5. DB 메세지 값 변경 */
     </script>
 
 </body>
